@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using System.Collections;
 
 public class OneDPlayerMove : MonoBehaviour
 {
@@ -22,6 +22,8 @@ public class OneDPlayerMove : MonoBehaviour
     GameObject projectile;
     Rigidbody2D rb, projRB;
 
+    ResetScreen resetScreen;
+
 public void OnEnable()
     {
         moveControl.Enable();
@@ -40,6 +42,8 @@ public void OnEnable()
         projectile = Instantiate(projectilePrefab);
         projRB = projectile.GetComponent<Rigidbody2D>();
         projectile.SetActive(false);
+        resetScreen = GameObject.FindGameObjectWithTag("ResetScreen").GetComponent<ResetScreen>();
+        resetScreen.AddToList(gameObject, transform.position);
     }
 
     void Update()
@@ -77,8 +81,46 @@ public void OnEnable()
 
     public void Teleport(float position, float dir, float colScale)
     {
-        gameObject.transform.localPosition = new Vector2(position + ((gameObject.transform.localScale.x + colScale) / 2 * dir), 0);
+        
+        float telePosX = position + ((gameObject.transform.localScale.x + colScale) / 2 * dir);
+        gameObject.transform.localPosition = new Vector2(telePosX, 0);
+
         projectileTime = projectileMaxTime;
-        projectile.SetActive(false);
+        projectile.SetActive(false);   
+
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "BorderRight")
+        {
+            //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + Camera.main.orthographicSize*16/9*2, 0, -10);
+            StartCoroutine(SwitchScreen(Camera.main.gameObject, Camera.main.transform.position, new Vector3(Camera.main.transform.position.x + Camera.main.orthographicSize*16/9*2, 0, -10)));
+            //gameObject.transform.position = new Vector2(transform.position.x + 1.5f, 0);
+            StartCoroutine(SwitchScreen(gameObject, transform.position, new Vector3(transform.position.x + 1.5f, 0, 0)));
+
+        } else if (col.gameObject.tag == "BorderLeft")
+        {
+            //Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - Camera.main.orthographicSize*16/9*2, 0, -10);
+            StartCoroutine(SwitchScreen(Camera.main.gameObject, Camera.main.transform.position, new Vector3(Camera.main.transform.position.x - Camera.main.orthographicSize*16/9*2, 0, -10)));
+            //gameObject.transform.position = new Vector2(transform.position.x - 1.5f, 0);
+            StartCoroutine(SwitchScreen(gameObject, transform.position, new Vector3(transform.position.x - 1.5f, 0, 0)));
+        }
+    }
+
+    IEnumerator SwitchScreen(GameObject obj, Vector3 start, Vector3 end)
+    {
+        float duration = 0.5f;
+        float timeElapsed = 0f;
+        Teleport(gameObject.transform.position.x, 1, -gameObject.transform.localScale.x);
+        while (timeElapsed < duration)
+        {
+            float t = timeElapsed/duration;
+            obj.transform.position = Vector3.Lerp(start, end, t);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        resetScreen.AddToList(gameObject, transform.position);
+        obj.transform.position = end;
     }
 }

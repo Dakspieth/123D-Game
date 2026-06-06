@@ -7,6 +7,9 @@ TagManager:
   - Projectile
   - PassThruWall
   - Wall
+  - BorderRight
+  - BorderLeft
+  - ResetScreen
   layers:
   - Default
   - TransparentFX
