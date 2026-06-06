@@ -10,6 +10,7 @@ TagManager:
   - BorderRight
   - BorderLeft
   - ResetScreen
+  - ShootThruWall
   layers:
   - Default
   - TransparentFX
