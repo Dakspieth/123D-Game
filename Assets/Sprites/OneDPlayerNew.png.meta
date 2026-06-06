@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0cccea4ac4aad874aa53b4fd5dc3f091
+guid: 8ab7a90cf253bc747b243d903f908bf3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GreenWallSpriteSheet_0
+      name: OneDPlayerNew_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4
+        width: 8
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -125,41 +125,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dce61b315bca6204c83f4f080a591098
-      internalID: 1601334784
+      spriteID: c688d5969908fad448ef3286d3b5fedc
+      internalID: 599403740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenWallSpriteSheet_1
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 0
-        width: 4
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ccc8b231e3ea111419c092733835f0fd
-      internalID: -801818260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenWallSpriteSheet_2
+      name: OneDPlayerNew_1
       rect:
         serializedVersion: 2
         x: 8
         y: 0
-        width: 4
+        width: 8
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -169,41 +147,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 417c19c86d48739448dfca9d1a1f2d2d
-      internalID: -516090633
+      spriteID: 7961313afbf19ca4cabe26e5c75431f8
+      internalID: 145799284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenWallSpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 0
-        width: 4
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1b03f6fbd2cb274fbe902fae2ef5661
-      internalID: -3229435
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenWallSpriteSheet_4
+      name: OneDPlayerNew_2
       rect:
         serializedVersion: 2
         x: 16
         y: 0
-        width: 4
+        width: 8
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -213,41 +169,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96cc9768b35b9a84f81e60379a2e5d20
-      internalID: -1916339988
+      spriteID: 29442af4f788fbe47b03883fd259c209
+      internalID: -527168061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GreenWallSpriteSheet_5
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 0
-        width: 4
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e209fa6b64eb764a89e672feec6a63b
-      internalID: -1919592122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenWallSpriteSheet_6
+      name: OneDPlayerNew_3
       rect:
         serializedVersion: 2
         x: 24
         y: 0
-        width: 4
+        width: 8
         height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -257,52 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 613192698f09e9b47be1fcd469bb0336
-      internalID: 1393752659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenWallSpriteSheet_7
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 0
-        width: 4
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1066b928c70bc3d4bbcac339b7175d88
-      internalID: -2005521355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: GreenWallSpriteSheet_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 4
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 59b0ff4af66c68a4180c39778a1fd142
-      internalID: 568708243
+      spriteID: 8793b6d2a0ec03146b0081bd46ae484d
+      internalID: 2135919816
       vertices: []
       indices: 
       edges: []
@@ -311,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ec2ed7ab9d4cad442a28aa88856011d6
+    spriteID: 128b304e42b3fe04c96d1b16ea7d294d
     internalID: 0
     vertices: []
     indices: 
@@ -321,17 +211,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":4.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":8.0,"y":8.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      GreenWallSpriteSheet_0: 1601334784
-      GreenWallSpriteSheet_1: -801818260
-      GreenWallSpriteSheet_2: -516090633
-      GreenWallSpriteSheet_3: -3229435
-      GreenWallSpriteSheet_4: -1916339988
-      GreenWallSpriteSheet_5: -1919592122
-      GreenWallSpriteSheet_6: 1393752659
-      GreenWallSpriteSheet_7: -2005521355
-      GreenWallSpriteSheet_8: 568708243
+      OneDPlayerNew_0: 599403740
+      OneDPlayerNew_1: 145799284
+      OneDPlayerNew_2: -527168061
+      OneDPlayerNew_3: 2135919816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

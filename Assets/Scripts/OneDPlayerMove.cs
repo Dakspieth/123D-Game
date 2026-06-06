@@ -20,17 +20,20 @@ public class OneDPlayerMove : MonoBehaviour
     [SerializeField]
     public GameObject projectilePrefab;
 
-    [HideInInspector]
-    public bool haveShootItem;
+    //[HideInInspector]
+    public bool haveShootItem = true;
     GameObject projectile;
     Rigidbody2D rb, projRB;
 
     ResetScreen resetScreen;
     bool transitioning = false; // true when shifting screens, used to prevent shooting and moving-based bugs
 
+    public List<GameObject> levels = new List<GameObject>();
+
     [SerializeField]
-    public List<Sprite> sprites = new List<Sprite>();
-    SpriteRenderer sr;
+    public List<SpriteRenderer> sprites = new List<SpriteRenderer>();
+    [SerializeField]
+    public List<Color> colors = new List<Color>();
 
 public void OnEnable()
     {
@@ -55,26 +58,28 @@ public void OnEnable()
         resetScreen = GameObject.FindGameObjectWithTag("ResetScreen").GetComponent<ResetScreen>();
         resetScreen.AddToList(gameObject, transform.position);
         
-        sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         direction = !transitioning ? moveControl.ReadValue<float>() : 0;
-        
+
         lastDirection = direction!=0 ? direction : lastDirection; // set to the direction the character last moved
 
-        sr.flipX = lastDirection == 1 ? false : true; 
+        foreach (SpriteRenderer sr in sprites)
+        {
+            sr.flipX = lastDirection == 1 ? false : true;
+        } 
         if (shoot.WasPressedThisFrame() && !projectile.activeSelf && !transitioning && haveShootItem)
         {
             Shoot();
         }
         if (haveShootItem)
         {
-            sr.sprite = projectile.activeSelf ? sprites[1] : sprites[0];  
+            sprites[1].color = !projectile.activeSelf ? colors[1] : colors[0];  
         } else
         {
-            sr.sprite = sprites[2];
+            sprites[1].color = colors[0];
         }
     }
 
