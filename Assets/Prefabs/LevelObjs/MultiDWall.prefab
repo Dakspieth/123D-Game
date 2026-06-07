@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1273458918685465568}
   m_Layer: 0
   m_Name: MultiDWall
-  m_TagString: Wall
+  m_TagString: NoTeleCol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

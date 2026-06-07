@@ -16,7 +16,7 @@ public class OneDProjectile : MonoBehaviour
         {
             checkCol = false;
             odpm.Teleport(col.transform.position.x, Mathf.Sign(odpm.gameObject.transform.position.x - gameObject.transform.position.x), col.transform.localScale.x);
-        } else if (col.gameObject.tag == "BorderRight" || col.gameObject.tag == "BorderLeft")
+        } else if (col.gameObject.tag == "BorderRight" || col.gameObject.tag == "BorderLeft" || col.gameObject.tag == "NoTeleCol")
         {
             odpm.Teleport(odpm.gameObject.transform.position.x, 1, -odpm.gameObject.transform.localScale.x);
         }

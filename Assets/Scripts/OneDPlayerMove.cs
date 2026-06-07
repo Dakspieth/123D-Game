@@ -21,7 +21,7 @@ public class OneDPlayerMove : MonoBehaviour
     public GameObject projectilePrefab;
 
     //[HideInInspector]
-    public bool haveShootItem = true;
+    public bool haveShootItem;
     GameObject projectile;
     Rigidbody2D rb, projRB;
 
@@ -58,6 +58,7 @@ public void OnEnable()
         resetScreen = GameObject.FindGameObjectWithTag("ResetScreen").GetComponent<ResetScreen>();
         resetScreen.AddToList(gameObject, transform.position);
         
+        haveShootItem = true;
     }
 
     void Update()
@@ -139,7 +140,7 @@ public void OnEnable()
     {
         transitioning = true;
 
-        float duration = 0.5f;
+        float duration = 0.4f;
         float timeElapsed = 0f;
         Teleport(gameObject.transform.position.x, 1, -gameObject.transform.localScale.x);
         while (timeElapsed < duration)

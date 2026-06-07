@@ -11,6 +11,7 @@ TagManager:
   - BorderLeft
   - ResetScreen
   - ShootThruWall
+  - NoTeleCol
   layers:
   - Default
   - TransparentFX
