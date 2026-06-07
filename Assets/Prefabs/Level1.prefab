@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3bcda10e40c294d8f80013a5264af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  Teleporter: 0
   sprites:
   - {fileID: 2003311241, guid: bd6d03faca22f6347b1e9d0b60afba0a, type: 3}
   - {fileID: -1033928595, guid: bd6d03faca22f6347b1e9d0b60afba0a, type: 3}
@@ -112,6 +113,7 @@ MonoBehaviour:
   - {fileID: -769299286, guid: bd6d03faca22f6347b1e9d0b60afba0a, type: 3}
   - {fileID: 776505226, guid: bd6d03faca22f6347b1e9d0b60afba0a, type: 3}
   - {fileID: -822947473, guid: bd6d03faca22f6347b1e9d0b60afba0a, type: 3}
+  RedWallKey: 0
 --- !u!61 &338682832408762118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -201,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1587106358709300447}
   - component: {fileID: 8021471602734751302}
+  - component: {fileID: 3923060854638076586}
   m_Layer: 0
   m_Name: SolidWall
   m_TagString: Wall
@@ -270,6 +273,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3923060854638076586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093411870695373667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ca4ca0067d39a489693ed29dfcf257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::unlockableRedWall
 --- !u!1 &8250881049446357314
 GameObject:
   m_ObjectHideFlags: 0

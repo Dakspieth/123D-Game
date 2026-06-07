@@ -9,12 +9,18 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(int level)
     {
-        levelObjects[level-1].SetActive(true);
+        if(levelObjects[level-1] != null)
+        {
+            levelObjects[level-1].SetActive(true);            
+        }   
     }
 
     public void UnloadLevel(int level)
     {
-        levelObjects[level-1].SetActive(false);
+        if(levelObjects[level-1] != null)
+        {
+        levelObjects[level-1].SetActive(false);            
+        }
     }
 
 }

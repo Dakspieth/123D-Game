@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using System;
 
 public class OneDPlayerMove : MonoBehaviour
 {
@@ -27,8 +28,6 @@ public class OneDPlayerMove : MonoBehaviour
 
     ResetScreen resetScreen;
     bool transitioning = false; // true when shifting screens, used to prevent shooting and moving-based bugs
-
-    public List<GameObject> levels = new List<GameObject>();
 
     [SerializeField]
     public List<SpriteRenderer> sprites = new List<SpriteRenderer>();
@@ -58,7 +57,8 @@ public void OnEnable()
         resetScreen = GameObject.FindGameObjectWithTag("ResetScreen").GetComponent<ResetScreen>();
         resetScreen.AddToList(gameObject, transform.position);
         
-        haveShootItem = true;
+        
+        Camera.main.transform.position = new Vector3(Mathf.Round(transform.position.x/(160f/9f))*(160f/9f), Camera.main.transform.position.y, -10);
     }
 
     void Update()
