@@ -4,7 +4,7 @@ public class MultiDWall : MonoBehaviour
 {
     [SerializeField]
     public float offset, timeOn, timeOff;
-    bool on = true;
+    public bool on = true;
     float timer = 0;
     SpriteRenderer sr;
     BoxCollider2D bc;
@@ -19,7 +19,7 @@ public class MultiDWall : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();   
         player = GameObject.FindGameObjectWithTag("Player"); 
         resetScreen = GameObject.FindGameObjectWithTag("ResetScreen").GetComponent<ResetScreen>();
-        timer = offset;
+        timer = -offset;
     }
 
     void Update()
