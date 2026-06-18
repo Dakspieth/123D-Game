@@ -11,6 +11,8 @@ public class TwoDPlayerMove : MonoBehaviour
         bool readJump = true;
     public float coyoteTime;
         float baseCoyoteTime;
+    public float jumpBufferTime;
+        float baseJumpBufferTime;
     public InputAction jumpControl;
     
     Rigidbody2D rb;
@@ -22,6 +24,7 @@ public class TwoDPlayerMove : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         baseJumpTime = jumpTime;
         baseCoyoteTime = coyoteTime;
+        baseJumpBufferTime = jumpBufferTime;
     }
 
     void OnEnable()
@@ -44,20 +47,22 @@ public class TwoDPlayerMove : MonoBehaviour
             coyoteTime -= Time.deltaTime;
         }
 
+        if(jumpControl.ReadValue<float>() == 1 && readJump && !groundCollided) {
+            jumpBufferTime = baseJumpBufferTime;
+        }
+
         moveDir = moveControl.ReadValue<float>(); // left right
 
         
 
-            // instead of grounded bool
-        if(coyoteTime>0 && jumpControl.ReadValue<float>() == 1 && readJump) {
+    // instead of grounded bool + press jump button
+        if(coyoteTime>0 && (jumpBufferTime>0 || jumpControl.ReadValue<float>() == 1 && readJump)) {
             jumpTime = baseJumpTime;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            //readJump = false;
         } else if(!groundCollided && jumpControl.ReadValue<float>() == 1 && jumpTime > 0) {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-         }// else if(jumpControl.ReadValue<float>() == 0) {
-        //     readJump = true;
-        // }
+        }
+
         if(jumpControl.ReadValue<float>() == 1) {
             readJump = false;
         } else {
@@ -65,7 +70,11 @@ public class TwoDPlayerMove : MonoBehaviour
         }
 
         jumpTime -= Time.fixedDeltaTime;
+        jumpBufferTime -= Time.deltaTime;
 
+        if(groundCollided) {
+            jumpBufferTime = -1;
+        }
         
         Vector2 moveSpeedDir = new Vector2(moveDir * moveSpeed, rb.linearVelocity.y);
         rb.linearVelocity = moveSpeedDir;
