@@ -53,6 +53,7 @@ public class TwoDPlayerMove : MonoBehaviour
 
         moveDir = moveControl.ReadValue<float>(); // left right
 
+        transform.localScale = new Vector2(moveDir != 0 ? moveDir : transform.localScale.x, transform.localScale.y);
         
 
     // instead of grounded bool + press jump button

@@ -10,7 +10,8 @@ public class TwoDPlayerTele : MonoBehaviour
     public InputAction shootControl;
 
     public GameObject proj; // projectile
-    Rigidbody2D projRB;
+    [HideInInspector]
+    public Rigidbody2D projRB;
     Rigidbody2D rb;
 
     void Start()
@@ -23,23 +24,30 @@ public class TwoDPlayerTele : MonoBehaviour
 
     void Update()
     {
-        shootWait -= Time.deltaTime;
+        shootWait -= shootWait > -1 ? Time.deltaTime : 0;
 
         if(shootControl.ReadValue<float>() == 1 && shootWait <= 0) {
-            print("sus");
             proj.transform.position = transform.position;
             proj.SetActive(true);
-            projRB.linearVelocity = new Vector2(projSpeed, rb.linearVelocity.y);
+            proj.transform.localScale = new Vector2(Mathf.Sign(transform.localScale.x) * Mathf.Abs(proj.transform.localScale.x), proj.transform.localScale.y);
+            projRB.linearVelocity = new Vector2(projSpeed * Mathf.Sign(transform.localScale.x), rb.linearVelocity.y);
         }
 
         if(proj.activeSelf) {
             shootWait = baseShootWait;
         }
+        
+        
+    }
 
-        if(shootWait <= 0) {
-            proj.SetActive(false);
-            projRB.linearVelocity = new Vector2(0, 0);
-        }
+    public void Teleport(Vector2 telePosition)
+    {
+        transform.position = telePosition;
+    }
+
+    public void DisableProjectile() {
+        proj.SetActive(false);
+        projRB.linearVelocity = new Vector2(0, 0);
     }
 
     void OnEnable()
