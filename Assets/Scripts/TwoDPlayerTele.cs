@@ -13,12 +13,13 @@ public class TwoDPlayerTele : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D projRB;
     Rigidbody2D rb;
-
+    TwoDPlayerMove tdpm;
     void Start()
     {
         baseShootWait = shootWait;   
         projRB = proj.GetComponent<Rigidbody2D>();
         rb = GetComponent<Rigidbody2D>();
+        tdpm = GetComponent<TwoDPlayerMove>();
     }
 
 
@@ -30,7 +31,7 @@ public class TwoDPlayerTele : MonoBehaviour
             proj.transform.position = transform.position;
             proj.SetActive(true);
             proj.transform.localScale = new Vector2(Mathf.Sign(transform.localScale.x) * Mathf.Abs(proj.transform.localScale.x), proj.transform.localScale.y);
-            projRB.linearVelocity = new Vector2(projSpeed * Mathf.Sign(transform.localScale.x), rb.linearVelocity.y);
+            projRB.linearVelocity = new Vector2(projSpeed * Mathf.Sign(transform.localScale.x), rb.linearVelocity.y* 0.66f);
         }
 
         if(proj.activeSelf) {
@@ -42,7 +43,9 @@ public class TwoDPlayerTele : MonoBehaviour
 
     public void Teleport(Vector2 telePosition)
     {
+        print(telePosition);
         transform.position = telePosition;
+        tdpm.coyoteTime = -1;
     }
 
     public void DisableProjectile() {

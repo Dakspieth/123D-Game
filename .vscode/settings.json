@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "123D-Game.slnx",
+    "dotnet.defaultSolution": "123D Game.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }

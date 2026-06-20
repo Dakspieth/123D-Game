@@ -24,9 +24,13 @@ void OnTriggerEnter2D(Collider2D col) {
         RaycastHit2D up = Physics2D.Raycast(transform.position, transform.up, 0.5f + Mathf.Abs(transform.localScale.x)/2);
         RaycastHit2D down = Physics2D.Raycast(transform.position, -transform.up, 0.5f + Mathf.Abs(transform.localScale.x)/2);
         
-        float positionX = transform.position.x+(transform.localScale.x/2)-(Mathf.Abs(tdpt.transform.localScale.x*directionX)/2);
+        float positionX = transform.position.x+(transform.localScale.x/2)-(Mathf.Abs(tdpt.transform.localScale.x)*directionX/2);
         float positionY = transform.position.y-up.distance+down.distance-(transform.localScale.y/2*directionY);
-
+        print(positionX);
+        print("pos" + transform.position.x);
+        print("proj" + transform.localScale.x);
+        print("player" + tdpt.transform.localScale.x);
+        print("dir" + directionY);
         tdpt.Teleport(new Vector2(positionX, positionY));
 
         tdpt.DisableProjectile();
