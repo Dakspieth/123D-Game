@@ -31,7 +31,7 @@ public class TwoDPlayerTele : MonoBehaviour
             proj.transform.position = transform.position;
             proj.SetActive(true);
             proj.transform.localScale = new Vector2(Mathf.Sign(transform.localScale.x) * Mathf.Abs(proj.transform.localScale.x), proj.transform.localScale.y);
-            projRB.linearVelocity = new Vector2(projSpeed * Mathf.Sign(transform.localScale.x), rb.linearVelocity.y* 0.66f);
+            projRB.linearVelocity = new Vector2(projSpeed * Mathf.Sign(transform.localScale.x), rb.linearVelocityY *0.5f);
         }
 
         if(proj.activeSelf) {

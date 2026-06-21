@@ -37,6 +37,7 @@ public class TwoDPlayerMove : MonoBehaviour
         moveControl.Disable();
         jumpControl.Disable();
     }
+        
     void FixedUpdate()
     {
         groundCollided = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - transform.localScale.y / 2),
