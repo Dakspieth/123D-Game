@@ -3,14 +3,17 @@ using UnityEngine;
 public class TwoDProjectile : MonoBehaviour
 {
 TwoDPlayerTele tdpt;
-
-void Start() {
+float camPosX, camPosY, camSize;
+void Awake() {
     tdpt = GameObject.FindGameObjectWithTag("Player").GetComponent<TwoDPlayerTele>();
     gameObject.SetActive(false);
+    camSize = Camera.main.orthographicSize;
 }
 
 void Update() {
-    if(Mathf.Abs(transform.position.x-Camera.main.transform.position.x) > Camera.main.orthographicSize*2)
+    camPosX = Camera.main.transform.position.x;
+    camPosY = Camera.main.transform.position.y;
+    if(Mathf.Abs(transform.position.x-camPosX) > camSize*16/9 || Mathf.Abs(transform.position.y - camPosY) > camSize)
     {
         tdpt.DisableProjectile();
     }
@@ -39,8 +42,6 @@ void OnTriggerEnter2D(Collider2D col) {
         print("pos: " + transform.position.x + " + " + transform.localScale.x/2 + "- " + Mathf.Abs(tdpt.transform.localScale.x)*directionX/2);
         print("equals: " + positionX);
         tdpt.Teleport(new Vector2(positionX, positionY));
-
-        tdpt.DisableProjectile();
     }
  }
 

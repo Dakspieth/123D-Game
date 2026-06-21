@@ -41,11 +41,12 @@ public class TwoDPlayerMove : MonoBehaviour
     void FixedUpdate()
     {
         groundCollided = Physics2D.OverlapBox(new Vector2(transform.position.x, transform.position.y - transform.localScale.y / 2),
-                                              new Vector2(transform.localScale.x-0.02f, 0.1f), 0f, LayerMask.GetMask("Ground"));
+                                              new Vector2(Mathf.Abs(transform.localScale.x)-0.02f, 0.25f), 0f, LayerMask.GetMask("Ground"));
+        
         if(groundCollided) {
             coyoteTime = baseCoyoteTime;
         } else {
-            coyoteTime -= Time.deltaTime;
+            coyoteTime -= coyoteTime > -1 ? Time.deltaTime : 0;
         }
 
         if(jumpControl.ReadValue<float>() == 1 && readJump && !groundCollided) {
@@ -58,7 +59,7 @@ public class TwoDPlayerMove : MonoBehaviour
         
 
     // instead of grounded bool + press jump button
-        if(coyoteTime>0 && (jumpBufferTime>0 || jumpControl.ReadValue<float>() == 1 && readJump)) {
+        if(coyoteTime>0 && (jumpBufferTime>0 || (jumpControl.ReadValue<float>() == 1 && readJump))) {
             jumpTime = baseJumpTime;
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         } else if(!groundCollided && jumpControl.ReadValue<float>() == 1 && jumpTime > 0) {
