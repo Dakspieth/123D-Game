@@ -27,13 +27,13 @@ void OnTriggerEnter2D(Collider2D col) {
         RaycastHit2D up = Physics2D.Raycast(transform.position, transform.up, 0.5f + Mathf.Abs(transform.localScale.x)/2, LayerMask.GetMask("Ground"));
         RaycastHit2D down = Physics2D.Raycast(transform.position, -transform.up, 0.5f + Mathf.Abs(transform.localScale.x)/2, LayerMask.GetMask("Ground"));
         float positionX;
-        if(down.collider != col && up.collider != col)
+        if(down.collider != col && up.collider != col) // hitting vertical wall
         {
             positionX = col.transform.position.x - (col.transform.localScale.x/2*directionX)-tdpt.transform.localScale.x/2*directionX;
-        } else
+        } else // hitting horizontal floor/ceiling
         {
-            positionX = transform.position.x+(transform.localScale.x/2)-(Mathf.Abs(tdpt.transform.localScale.x)*directionX/2);
-        }
+            positionX = transform.position.x;//+(transform.localScale.x/2)-(Mathf.Abs(tdpt.transform.localScale.x)*directionX/2);
+        }               //  proj pos          - 1         +   
         float positionY = transform.position.y-up.distance+down.distance-(tdpt.transform.localScale.y/2*directionY);
         // positionX = Mathf.Round(positionX*16)/16;
         // positionY = Mathf.Round(positionY*16)/16;
